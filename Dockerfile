@@ -1,5 +1,3 @@
-FROM golang:1.13
-
-RUN go get -u golang.org/x/lint/golint
-RUN go get github.com/GeertJohan/go.rice/rice
-RUN go get -u github.com/tools/godep
+FROM golang:1.13.15
+RUN pt-get clean && apt-get update && \ 
+apt-get install -y git build-essential make
