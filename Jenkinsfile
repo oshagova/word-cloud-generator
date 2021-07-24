@@ -53,7 +53,7 @@ pipeline {
             stages{
                 stage('Download and start app'){
                     steps{
-                        sh '''curl -X GET -u downloader:downloader "http://192.168.33.11:8081/repository/word-cloud-generator/web-app-pipeline/word-cloud-generator/1.$BUILD_NUMBER/word-cloud-generator-1.$BUILD_NUMBER.gz" -o /opt/wordcloud/word-cloud-generator.gz
+                        sh '''curl -X GET -u downloader:downloader "http://192.168.33.11:8081//repository/word-cloud-generator/web-app-pipeline/word-cloud-generator/1.$BUILD_NUMBER/word-cloud-generator-1.$BUILD_NUMBER.gz" -o /opt/wordcloud/word-cloud-generator.gz
                         gunzip -f /opt/wordcloud/word-cloud-generator.gz
                         rm -f artifacts/*
                         chmod +x /opt/wordcloud/word-cloud-generator
