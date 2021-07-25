@@ -7,7 +7,12 @@ pipeline {
 
     stages{
         stage('Create docker-agent for building project'){
-            agent{dockerfile true}
+            agent{
+                dockerfile{
+                    filename 'Dockerfile'
+                    args '--network host'
+                }
+            }
             stages{
                 stage('Using Make tests'){
                     steps{
@@ -46,8 +51,9 @@ pipeline {
         stage('Create new docker-agent for making tests'){
             agent{
                 dockerfile{
-                    filename 'Dockerfile'
                     dir 'alpine_image'
+                    filename 'Dockerfile'
+                    args '--network host'
                 }
             }
             stages{
