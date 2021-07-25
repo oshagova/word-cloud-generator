@@ -63,7 +63,7 @@ pipeline {
                         gunzip -f /opt/wordcloud/word-cloud-generator.gz
                         rm -f artifacts/*
                         chmod +x /opt/wordcloud/word-cloud-generator
-                        /opt/wordcloud/word-cloud-generator'''
+                        /opt/wordcloud/word-cloud-generator & sleep 5'''
                     }
                 }
                 stage('Making tests'){
